@@ -1,0 +1,28 @@
+
+export const fetchData = (setUsers) =>{
+    const usersRef = ref(database, "users");
+
+    onValue(usersRef,(snapshot)=>{
+        const data = snapshot.val();
+        console.log(data);
+        
+        <td className="py-2 px-4 border"></td>
+
+        if (data) {
+            const usersArray = Object.entries(data).map(([id, user])=>({
+                id,
+                ...user
+            }));
+            console.log(typeof(usersArray));
+            
+            
+            setUsers(usersArray);
+            
+            
+        }
+        
+        else {
+            setUsers([]);
+        }
+
+    })
