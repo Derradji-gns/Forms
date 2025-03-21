@@ -7,15 +7,15 @@ import Example from './auth';
 import Listes from './lists';
 import { app } from "./firebase/firebase";
 
-// Create an authentication context
+
 const AuthContext = createContext();
 
-// Custom hook to use the auth context
+
 function useAuth() {
   return useContext(AuthContext);
 }
 
-// Auth provider component
+
 function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -42,7 +42,7 @@ function AuthProvider({ children }) {
   );
 }
 
-// Protected route component
+
 function ProtectedRoute({ children }) {
   const { currentUser, loading } = useAuth();
   
@@ -77,7 +77,7 @@ function App() {
   );
 }
 
-// Public route component (redirects to lists if already signed in)
+
 function PublicRoute({ children }) {
   const { currentUser, loading } = useAuth();
   
